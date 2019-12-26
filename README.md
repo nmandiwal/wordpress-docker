@@ -157,11 +157,11 @@ The default username is `root`, and the password is the same as supplied in the 
 
 ######### mandiwal specific
 to start:
-aws s3 sync s3://mandiwal-wp-data/ . --exclude "*" --include "*wp-app/wp-content/plugins/*" --include "*wp-data/*.sql" --exclude "**/.DS_Store"
+aws s3 sync s3://mandiwal-wp-data/ .
 docker-compose up
 
 to stop:
 ./export.sh
 WP2static-->Start static site export
 
-aws s3 sync . s3://mandiwal-wp-data/ --exclude "*" --include "*wp-app/wp-content/plugins/*" --include "*wp-data/*.sql" --exclude "**/.DS_Store" 
+aws s3 sync . s3://mandiwal-wp-data/ --exclude "*" --include "*wp-app/wp-content/plugins/*" --include "*wp-data/*.sql" --include "*wp-content/themes/twentyseventeen/header.php" --include "*wp-content/uploads/*" --exclude "*wp-content/uploads/wp*" --exclude "*wp-content/uploads/WP*"  --exclude "*/.DS_Store" --dryrun 
