@@ -154,7 +154,6 @@ The default username is `root`, and the password is the same as supplied in the 
 
 
 
-<a name="mandiwal"></a>
 ## specific to mandiwal.com
 To start:
 - download this repo
@@ -164,7 +163,8 @@ aws s3 sync s3://mandiwal-wp-data/ .
 docker-compose up
 - start using wordpress on 127.0.0.1/
 - to take it live
-WP2Static-->Start static site export
+  - configure WP2Static to take static content to aws s3
+  - WP2Static-->Start static site export
 - take backup
   - ./export.sh
   - aws s3 sync . s3://mandiwal-wp-data/ --exclude "*" --include "*wp-app/wp-content/plugins/*" --include "*wp-data/*.sql" --include "*wp-content/themes/twentyseventeen/header.php" --include "*wp-content/uploads/*" --exclude "*wp-content/uploads/wp*" --exclude "*wp-content/uploads/WP*"  --exclude "*/.DS_Store" --dryrun
