@@ -167,8 +167,7 @@ docker-compose up
   - WP2Static-->Start static site export
 - take backup
   - ./export.sh
-  - ``` aws s3 sync . s3://mandiwal-wp-data/ --exclude "*" --include "wp-app/wp-content/plugins/*" --include "wp-data/*.sql" --include "wp-app/wp-content/themes/twentyseventeen/header.php" --include "wp-app/wp-content/uploads/*" --exclude "wp-app/wp-content/uploads/wp*" --exclude "wp-app/wp-content/uploads/WP*" --exclude "*.DS_Store" --dryrun
- ```
+  - ``` aws s3 sync . s3://mandiwal-wp-data/ --exclude "*" --include "wp-app/wp-content/plugins/*" --include "wp-data/*.sql" --include "wp-app/wp-content/themes/twentyseventeen/header.php" --include "wp-app/wp-content/uploads/*" --exclude "wp-app/wp-content/uploads/wp*" --exclude "wp-app/wp-content/uploads/WP*" --exclude "*.DS_Store" --dryrun ```
   - remove --dryrun from above command to commit the changes
 -  to stop wordpress
    - docker-compose down 
