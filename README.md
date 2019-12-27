@@ -154,14 +154,20 @@ The default username is `root`, and the password is the same as supplied in the 
 
 
 
-
-######### mandiwal specific
-to start:
-aws s3 sync s3://mandiwal-wp-data/ .
+<a name="mandiwal"></a>
+## specific to mandiwal.com
+To start:
+- download this repo
+- run below command to get the wordpress backup from aws bucket.
+aws s3 sync s3://mandiwal-wp-data/ . 
+- start word press
 docker-compose up
-
-to stop:
-./export.sh
-WP2static-->Start static site export
-
-aws s3 sync . s3://mandiwal-wp-data/ --exclude "*" --include "*wp-app/wp-content/plugins/*" --include "*wp-data/*.sql" --include "*wp-content/themes/twentyseventeen/header.php" --include "*wp-content/uploads/*" --exclude "*wp-content/uploads/wp*" --exclude "*wp-content/uploads/WP*"  --exclude "*/.DS_Store" --dryrun 
+- start using wordpress on 127.0.0.1/
+- to take it live
+WP2Static-->Start static site export
+- take backup
+  - ./export.sh
+  - aws s3 sync . s3://mandiwal-wp-data/ --exclude "*" --include "*wp-app/wp-content/plugins/*" --include "*wp-data/*.sql" --include "*wp-content/themes/twentyseventeen/header.php" --include "*wp-content/uploads/*" --exclude "*wp-content/uploads/wp*" --exclude "*wp-content/uploads/WP*"  --exclude "*/.DS_Store" --dryrun
+  - remove --dryrun from above command to commit the changes
+-  to stop wordpress
+   - docker-compose down 
